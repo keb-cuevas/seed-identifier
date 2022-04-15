@@ -51,7 +51,7 @@ for name,model in models:
     cv_result = cross_val_score(model,X_train,y_train, cv = kfold,scoring = "accuracy")
     print(name, cv_result)
 
-    xgb_model = xgb.XGBClassifier().fit(X_train, y_train)
+    xgb_model = xgb.XGBClassifier(eval_metric='mlogloss').fit(X_train, y_train)
 
 import joblib
 
